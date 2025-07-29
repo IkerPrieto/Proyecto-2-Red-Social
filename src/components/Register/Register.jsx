@@ -4,7 +4,7 @@ import { register } from '../../redux/auth/authSlice'
 import { notification } from 'antd';
 
 const Register = () => {
-    const [formData, setFormData] = useState({ name: '', email: '', password: '', age: ''})
+    const [formData, setFormData] = useState({ name: '', email: '', password: '', password2: '', age: ''})
     const { name, email, age, password, password2 } = formData
 
     const onChange = (e) => {
