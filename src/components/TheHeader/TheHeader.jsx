@@ -14,7 +14,7 @@ const TheHeader = () => {
     }
     return (
         <nav>
-            <h1>header</h1>
+            <Link to="/">Home </Link>
             {user ? (<button onClick={onLogout}>Logout</button>) : (
                 <>
                     <Link to="/login">Login</Link>

@@ -5,6 +5,7 @@ import { login } from '../../redux/auth/authSlice'
 const Login = () => {
     const [formData, setFormData] = useState({ email: '', password: '' })
     const { email, password } = formData
+
     const onChange = (e) => {
         setFormData((prevState) => ({
             ...prevState,
@@ -16,12 +17,14 @@ const Login = () => {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        console.log('formData', formData)
         dispatch(login(formData))
     }
-    
+
     return (
-        <form onSubmit={onSubmit}>
+        <form
+            onSubmit={onSubmit}
+            autoComplete="off"
+        >
             <input type="email" name="email" value={email} onChange={onChange} />
             <input type="password" name="password" value={password} onChange={onChange} />
             <button type="submit">Login</button>
