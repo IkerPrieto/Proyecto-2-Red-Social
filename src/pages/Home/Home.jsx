@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Post from '../../components/TheHeader/Post/Post';
-// import PostFeed from '../components/PostFeed';
+import Post from '../../components/Post/Post';
 
 const Index = () => {
   const { user } = useSelector(state => state.auth);

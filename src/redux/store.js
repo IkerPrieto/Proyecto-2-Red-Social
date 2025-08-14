@@ -5,6 +5,6 @@ import post from '../redux/posts/PostSlice'
 export const store = configureStore({
   reducer: {
     auth,
-    post
+    posts: post
   },
 })

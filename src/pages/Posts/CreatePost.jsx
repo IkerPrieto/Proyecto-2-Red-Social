@@ -1,4 +1,4 @@
-import Post from "../../components/TheHeader/Post/Post"
+import Post from "../../components/Post/Post"
 import { useDispatch, useSelector } from "react-redux"
 import { getAll, reset } from "../../redux/posts/postsSlice"
 

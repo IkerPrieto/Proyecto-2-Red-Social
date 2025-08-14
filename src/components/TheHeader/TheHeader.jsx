@@ -14,8 +14,15 @@ const TheHeader = () => {
     }
     return (
         <nav>
-            <Link to="/">Home </Link>
-            {user ? (<button onClick={onLogout}>Logout</button>) : (
+            <h1>Header</h1>
+            {user ? (
+                <>
+                    <button onClick={onLogout}>Logout</button>
+                    <Link to="/">Home </Link>
+                    <Link to="/profile">Profile | {user.name}</Link>
+                </>
+
+            ) : (
                 <>
                     <Link to="/login">Login</Link>
                     <Link to="/register">Register</Link>

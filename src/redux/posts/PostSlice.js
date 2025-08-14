@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import authService from './PostService'
+import postService from './PostService'
 
 const initialState = {
   posts: [],
@@ -9,7 +9,7 @@ const initialState = {
 
 export const getAll = createAsyncThunk("posts/getAll", async () => {
   try {
-    return await authService.getAll();
+    return await postService.getAll();
   } catch (error) {
     console.error(error);
   }
@@ -33,7 +33,8 @@ export const postsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getAll.fulfilled, (state, action) => {
-      state.posts = action.payload;
+      state.isLoading = false
+      state.posts = action.payload
     }).addCase(getAll.pending, (state) => {
       state.isLoading = true
     })
