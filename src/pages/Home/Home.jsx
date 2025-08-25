@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Post from '../../components/Post/Post';
 
-const Index = () => {
+const Home = () => {
   const { user } = useSelector(state => state.auth);
 
   if (!user) {
@@ -31,7 +31,7 @@ const Index = () => {
 
   return (
     <div className="container">
-      <div className="flex gap-4" style={{ marginTop: '2rem' }}>
+      <div className="flex gap-4">
         <aside className="sidebar">
           <div className="profile-card">
             <img 
@@ -60,10 +60,10 @@ const Index = () => {
 
           <div className="card mt-4">
             <h4 className="mb-3">Quick Actions</h4>
-            <Link to="/create-post" className="btn btn-primary" style={{ width: '100%', marginBottom: '0.5rem' }}>
+            <Link to="/create-post" className="btn btn-primary">
               Create New Post
             </Link>
-            <Link to="/profile" className="btn btn-secondary" style={{ width: '100%' }}>
+            <Link to="/profile" className="btn btn-secondary">
               My Profile
             </Link>
           </div>
@@ -76,12 +76,10 @@ const Index = () => {
               Create Post
             </Link>
           </div>
-          
-          <PostFeed />
         </main>
       </div>
     </div>
   );
 };
 
-export default Index;
+export default Home;

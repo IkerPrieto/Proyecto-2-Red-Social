@@ -7,6 +7,8 @@ import Login from './pages/Login/Login'
 import Home from './pages/Home/Home'
 import PostDetail from './redux/posts/PostDetail'
 import Profile from './components/Profile/Profile'
+import MyPosts from './pages/Posts/MyPosts'
+import CreatePost from './pages/Posts/CreatePost'
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/profile' element={<Profile />} />
+            <Route path='/my-posts' element={<MyPosts />} />
+            <Route path='/create-post' element={<CreatePost />} />
             <Route path='/posts/id/:id' element={<PostDetail />} />
           </Routes>
         </BrowserRouter>

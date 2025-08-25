@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import postService from './PostService'
+import PostService from './PostService'
 
 const initialState = {
   posts: [],
@@ -7,17 +7,28 @@ const initialState = {
   post: {}
 }
 
+export const createPost = createAsyncThunk(
+  "posts/createPost",
+  async ({ postData, token }, { rejectWithValue }) => {
+    try {
+      return await PostService.createPost(postData, token)
+    } catch (err) {
+      return rejectWithValue(err.response?.data?.message || err.message)
+    }
+  }
+)
+
 export const getAll = createAsyncThunk("posts/getAll", async () => {
   try {
-    return await postService.getAll();
+    return await PostService.getAll()
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 })
 
 export const getById = createAsyncThunk("posts/getById", async (id) => {
   try {
-    return await authService.getById(id)
+    return await PostService.getById(id)
   } catch (error) {
     console.error(error)
   }
@@ -32,13 +43,25 @@ export const postsSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
+    builder.addCase(createPost.pending, (state) => {
+      state.isLoading = true
+    })
+      .addCase(createPost.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.posts.unshift(action.payload)
+      })
+      .addCase(createPost.rejected, (state, action) => {
+        state.isLoading = false
+        state.error = action.payload
+      })
+
     builder.addCase(getAll.fulfilled, (state, action) => {
       state.isLoading = false
       state.posts = action.payload
     }).addCase(getAll.pending, (state) => {
       state.isLoading = true
     })
-    
+
     builder.addCase(getById.fulfilled, (state, action) => {
       state.post = action.payload.post
       state.isLoading = false

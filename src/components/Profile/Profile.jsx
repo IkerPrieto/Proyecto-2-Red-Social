@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { getAll } from '../../redux/posts/PostSlice'
+import { Link } from 'react-router-dom'
 
 const Profile = () => {
     const dispatch = useDispatch()
@@ -25,6 +26,12 @@ const Profile = () => {
             <p>{user?.age}</p>
 
             <h2>My posts:</h2>
+            <Link to="/my-posts">
+                My Posts
+            </Link>
+            <Link to="/create-post">
+                Create Post
+            </Link>
             {userPosts.length > 0 ? (
                 <ul>
                     {userPosts.map(post => (
