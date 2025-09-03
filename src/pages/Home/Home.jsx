@@ -35,12 +35,11 @@ const Home = () => {
         <aside className="sidebar">
           <div className="profile-card">
             <img 
-              src={user.avatar || 'https://via.placeholder.com/80'} 
+              src={user.avatar} 
               alt="Avatar" 
               className="profile-card-avatar"
             />
             <h2 className="profile-card-name">{user.name}</h2>
-            <p className="profile-card-username">@{user.username}</p>
             
             <div className="profile-card-stats">
               <div className="profile-card-stats-item">

@@ -9,6 +9,7 @@ import PostDetail from './redux/posts/PostDetail'
 import Profile from './components/Profile/Profile'
 import MyPosts from './pages/Posts/MyPosts'
 import CreatePost from './pages/Posts/CreatePost'
+import AllPosts from './pages/Posts/AllPosts'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
             <Route path='/my-posts' element={<MyPosts />} />
             <Route path='/create-post' element={<CreatePost />} />
             <Route path='/posts/id/:id' element={<PostDetail />} />
+            <Route path='/posts/getAll' element={<AllPosts />} />
           </Routes>
         </BrowserRouter>
     </div>
